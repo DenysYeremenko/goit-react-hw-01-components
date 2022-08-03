@@ -1,32 +1,32 @@
-import { ProfileWrapper, DescriptionWrapper, StatsList, StatsItem, AvatarImg, UsernameP,  GlobalStyle } from './Profile.styled'
+import style from './Profile.module.css'
 
 export const Profile = ({ user: {avatar, stats: {followers, views, likes}, location, tag, username}}) => {
-    return (
-      <ProfileWrapper>
-        <GlobalStyle />
-        <DescriptionWrapper>
-          <AvatarImg 
-          src={avatar}
-          alt="User avatar"
-          ></AvatarImg>
-          <UsernameP>{username}</UsernameP>
-          <p className="tag">@{tag}</p>
-          <p className="location">{location}</p>
-        </DescriptionWrapper>
-        <StatsList>
-          <StatsItem>
-            <span className="label">Followers</span>
-            <span className="quantity">{followers}</span>
-          </StatsItem>
-          <StatsItem>
-            <span className="label">Views</span>
-            <span className="quantity">{views}</span>
-          </StatsItem>
-          <StatsItem>
-            <span className="label">Likes</span>
-            <span className="quantity">{likes}</span>
-          </StatsItem>
-        </StatsList>
-      </ProfileWrapper>
-    )
+  return (
+  <div className={style.profile}>
+    <div className={style.description}>
+      <img
+        src={avatar}
+        alt="User avatar"
+        className={style.avatar}
+      />
+      <p className={style.name}>{username}</p>
+      <p className={style.tag}>@{tag}</p>
+      <p className={style.location}>{location}</p>
+    </div>
+    <ul className={style.stats}>
+      <li className={style.statsItem}>
+        <span className={style.label}>Followers</span>
+        <span className={style.quantity}>{followers}</span>
+      </li>
+      <li className={style.statsItem}>
+        <span className={style.label}>Views</span>
+        <span className={style.quantity}>{views}</span>
+      </li>
+      <li className={style.statsItem}>
+        <span className={style.label}>Likes</span>
+        <span className={style.quantity}>{likes}</span>
+      </li>
+    </ul>
+  </div>
+  )
 }
