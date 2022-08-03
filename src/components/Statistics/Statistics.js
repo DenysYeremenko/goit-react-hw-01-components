@@ -4,10 +4,6 @@ const getRandomHexColor = () => {
     return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   }
 
-const background = {
-    background: {getRandomHexColor},
-}
-
 export const Statistics = ({title, stats}) => {
 
     return (
