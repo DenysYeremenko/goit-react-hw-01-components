@@ -1,36 +1,20 @@
-import style from './Statistics.module.css'
+import { StatHeader } from './Statistics.styled'
+import { Box } from 'components/Box'
+import { theme } from '../../theme'
+import { StatisticsItem } from './StatisticsItem'
 
-const getRandomHexColor = () => {
-    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-  }
-
-const background = {
-    background: {getRandomHexColor},
-}
-
-export const Statistics = ({title, stats}) => {
-
+export const Statistics = ({stats}) => {
     return (
-    <section className={style.statistics}>
-    <h2 className={style.title} >Upload stats</h2>
-    <ul className={style.statList}>
-        <li className={style.statItem} style={{background: getRandomHexColor()}}>
-        <span className="label">{stats[0].label}</span>
-        <span className="percentage">{stats[0].percentage}%</span>
-        </li>
-        <li className={style.statItem} style={{background: getRandomHexColor()}}>
-        <span className="label">{stats[1].label}</span>
-        <span className="percentage">{stats[1].percentage}%</span>
-        </li>
-        <li className={style.statItem} style={{background: getRandomHexColor()}}>
-        <span className="label">{stats[2].label}</span>
-        <span className="percentage">{stats[2].percentage}%</span>
-        </li>
-        <li className={style.statItem} style={{background: getRandomHexColor()}}>
-        <span className="label">{stats[3].label}</span>
-        <span className="percentage">{stats[3].percentage}%</span>
-        </li>
-    </ul>
+    <section className="statistics">
+    <Box width="240px" 
+    boxShadow={theme.shadows[0]} mt={1}>
+    <StatHeader>Upload stats</StatHeader>
+        <ul className="statList">
+            <Box display="flex" justifyContent="space-between" >
+                <StatisticsItem stats={stats}/>
+            </Box>
+        </ul>
+    </Box>
     </section>
     )
 }
