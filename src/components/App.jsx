@@ -3,16 +3,22 @@ import { Statistics } from "./Statistics/Statistics"
 import { FriendList } from "./FriendList/FriendList"
 import { TransactionHistory } from "./TransactionHistory/TransactionHistory";
 import { Box } from "./Box";
-import user from "../user.json";
-import data from "../data.json"
-import friends from "../friends.json"
-import transactions from "../transactions.json"
+import user from "../data/user.json";
+import data from "../data/data.json"
+import friends from "../data/friends.json"
+import transactions from "../data/transactions.json"
 
 export const App = () => {
   return (
     <Box display="flex" justifyContent="center">
       <Box>
-        <Profile user = {user} />
+        <Profile 
+          username={user.username}
+          avatar={user.avatar}
+          tag={user.tag}
+          location={user.location}
+          stats={user.stats}
+          />
         <Statistics title = "Upload stats" stats = {data}/>
       </Box>
       <FriendList friends = {friends}/>
